@@ -7,11 +7,11 @@ import types.Patient;
  */
 public final class ValidationUtils {
 	private static int MIN_AGE = 0;
-	private static int MAX_AGE = 0;
+	private static int MAX_AGE = 120;
 	private static int MIN_HEIGHT = 0;
-	private static int MAX_HEIGHT = 0;
+	private static int MAX_HEIGHT = 120;
 	private static int MIN_WEIGHT = 0;
-	private static int MAX_WEIGHT = 0;
+	private static int MAX_WEIGHT = 300;
 
 
 	/**
@@ -49,28 +49,35 @@ public final class ValidationUtils {
 	}
 
 	private static boolean validateSex(String sex) {
-		if(isNullOrEmpty(sex) || (!"male".equals(sex.toLowerCase()) && !"female".equals(sex.toLowerCase()) && !"none".equals(sex.toLowerCase()))) {
-			throw new IllegalArgumentException("Sex can only be either 'male', 'female', or 'none'.");
+		String errorMessage = "Sex can only be either 'male', 'female', or 'none'.";
+		if(isNullOrEmpty(sex)) {
+			throw new IllegalArgumentException(errorMessage);
+		}
+
+		String sexLowerCase = sex.toLowerCase();
+
+		if(isNullOrEmpty(sex) || (!"male".equals(sexLowerCase) && !"female".equals(sexLowerCase) && !"none".equals(sexLowerCase))) {
+			throw new IllegalArgumentException(errorMessage);
 		}
 		return true;
 	}
 
 	private static boolean validateHeight(int height) {
-		if(height < 0 || height > 250) {
+		if(height < MIN_HEIGHT || height > MAX_HEIGHT) {
 			throw new IllegalArgumentException("Height cannot negative or larger than 250.");
 		}
 		return true;
 	}
 
 	private static boolean validateWeight(int weight) {
-		if(weight < 0 || weight > 300) {
+		if(weight < MIN_WEIGHT || weight > MAX_WEIGHT) {
 			throw new IllegalArgumentException("Weight cannot negative or larger than 300.");
 		}
 		return true;
 	}
 
 	private static boolean validateAge(int age) {
-		if(age < 0 || age > 120) {
+		if(age < MIN_AGE || age > MAX_AGE) {
 			throw new IllegalArgumentException("Age cannot be negative or larger than 120.");
 		}
 		return true;
