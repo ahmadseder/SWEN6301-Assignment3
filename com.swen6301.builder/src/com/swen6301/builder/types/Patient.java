@@ -133,6 +133,6 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient [" + this.firstName + ", " + this.lastName + "] has been successfully processed!";
+        return "[" + this.firstName + ", " + this.lastName + "]";
     }
 }
