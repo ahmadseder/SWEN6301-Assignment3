@@ -61,6 +61,7 @@ public class Patient {
     public BloodType getBloodType() {
         return bloodType;
     }
+
     /**
      * This class is to
      */
@@ -128,7 +129,6 @@ public class Patient {
             return new Patient(this);
         }
     }
-
 
 
     @Override

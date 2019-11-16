@@ -1,8 +1,7 @@
 package com.swen6301.builder.types;
 
 
-public enum BloodType
-{
+public enum BloodType {
     A_POSITIVE("A+"),
     A_NEGATIVE("A-"),
     B_POSITIVE("B+"),
@@ -14,8 +13,12 @@ public enum BloodType
 
     private final String label;
 
-    private BloodType(String label) { this.label = label; }
+    private BloodType(String label) {
+        this.label = label;
+    }
 
     @Override
-    public String toString() { return label; }
+    public String toString() {
+        return label;
+    }
 }
