@@ -49,9 +49,9 @@ public class Driver {
 
 		boolean success = PersistenceUtils.storePatientInfo(patient);
 		if(success) {
-			System.out.println(patient);
+			System.out.println("Patient "+patient+" has been successfully processed!");
 		} else {
-			System.out.println("An error occurred while processing info for patient [" + firstName + ", " + lastName + "]!");
+			System.out.println("An error occurred while processing info for patient "+patient+"!");
 		}
 	}
 	
